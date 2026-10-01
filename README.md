@@ -1,37 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Paint EZ of Clearwater — Website Concept
 
-## Getting Started
+Mobile-first marketing site built to turn Instagram/Facebook ad traffic into quote requests.
 
-First, run the development server:
+**Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion (quote steps + lightbox only) · next/image (AVIF/WebP)
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # http://localhost:3000
+npm run build && npm start   # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where to edit things
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | File |
+| --- | --- |
+| Business name, phone, email, Instagram, demo flag, site URL | `src/config/site.ts` |
+| Page copy (hero, services, trust, about, process, nav) | `src/config/content.ts` |
+| Before/after pairs + gallery images | `src/config/projects.ts` |
+| Quote funnel steps & options | `src/config/quote.ts` |
+| SEO / Open Graph copy | `src/config/seo.ts` → rendered in `src/app/layout.tsx` |
+| Structured data (HousePainter JSON-LD) | `src/components/StructuredData.tsx` |
+| Analytics events (single entry point) | `src/lib/analytics.ts` |
+| Lead delivery (webhook / CRM adapters) | `src/lib/leads/deliver.ts`, API: `src/app/api/quote/route.ts` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Blank contact fields are hidden automatically — the **Call** button, phone/email links and the
+Instagram link appear as soon as they are filled in `site.ts`. Set `demoMode: false` to remove the
+"Website Concept" line in the footer.
 
-## Learn More
+## Leads
 
-To learn more about Next.js, take a look at the following resources:
+Both the 5-step wizard and the contact form POST to `/api/quote`, which validates the payload and
+calls `deliverLead()`. With no destination configured (demo mode) leads are logged and the visitor
+sees the success screen.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Set `QUOTE_WEBHOOK_URL` (see `.env.example`) to forward each lead as JSON to Zapier, Make,
+GoHighLevel, HubSpot workflows, n8n, etc. — from there route to email, SMS, CRM or calendar booking.
+Add direct adapters (HubSpot Forms API, Twilio, Resend…) to the `adapters` array in `deliver.ts`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Analytics
 
-## Deploy on Vercel
+Components only call `trackEvent(name, params)`. Events are pushed to `window.dataLayer` (GTM) and
+forwarded to `gtag` / Meta Pixel `fbq` if present. Add the provider snippet once in `layout.tsx`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Social previews
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# paintez
+- OG image: `public/og-paint-ez-clearwater.jpg` (1200×630). Regenerate with `node scripts/generate-assets.mjs`
+  (also rebuilds favicons in `src/app/`).
+- Absolute URLs come from `NEXT_PUBLIC_SITE_URL`, falling back to Vercel's production domain
+  (`VERCEL_PROJECT_PRODUCTION_URL`). Set `NEXT_PUBLIC_SITE_URL` when a custom domain is added.
+
+## Imagery
+
+`public/images/` holds optimized versions of the supplied artwork. The cabinet "after" image is a
+recolor of the supplied kitchen photo (`scripts/kitchen-after.py`). Replace before/after and gallery
+images with real project photos as they become available.

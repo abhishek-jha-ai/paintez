@@ -17,10 +17,10 @@ export function QuoteSection() {
           <h2 id="quote-title" className="mt-3 font-display text-[2.1rem] font-bold leading-[1.08] tracking-tight sm:text-5xl">
             Get your free painting quote
           </h2>
-          <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-white/75">
+          <p className="mt-4 max-w-md text-[1.05rem] leading-relaxed text-white/75 sm:mt-5">
             Tell us a little about your home and what you&apos;d like painted. It only takes a minute — no long forms.
           </p>
-          <ul className="mt-7 grid gap-3">
+          <ul className="mt-7 hidden gap-3 lg:grid">
             {reassurance.map((item) => (
               <li key={item} className="flex items-center gap-3 font-display font-medium">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-teal-500/15 text-teal-400">

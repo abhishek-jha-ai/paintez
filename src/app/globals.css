@@ -11,8 +11,8 @@
   --color-teal-200: #a6e4ec;
   --color-teal-400: #2ec3d6;
   --color-teal-500: #02aec4;
-  --color-teal-600: #00899d;
-  --color-teal-700: #006f80;
+  --color-teal-600: #00788a;
+  --color-teal-700: #005f6d;
   --color-ink: #011230;
   --color-muted: #4a5a73;
   --color-line: #e3e9f0;
@@ -109,7 +109,7 @@
 @utility btn-primary {
   background: var(--color-teal-600);
   color: #fff;
-  box-shadow: 0 8px 20px -8px rgb(0 137 157 / 0.7);
+  box-shadow: 0 8px 20px -8px rgb(0 120 138 / 0.6);
   &:hover {
     background: var(--color-teal-700);
   }

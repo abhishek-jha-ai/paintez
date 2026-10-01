@@ -107,7 +107,7 @@ export function QuoteWizard() {
     <LazyMotion features={domAnimation} strict>
       <div className="relative overflow-hidden rounded-3xl bg-white text-navy-950 shadow-[0_30px_80px_-30px_rgb(0_0_0/0.55)]">
         {status === "success" ? (
-          <div className="flex min-h-[460px] flex-col items-center justify-center px-6 py-12 text-center sm:px-10" aria-live="polite">
+          <div className="flex min-h-[420px] flex-col items-center justify-center px-6 py-12 text-center sm:px-10" aria-live="polite">
             <m.span
               initial={{ scale: reduceMotion ? 1 : 0.6, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -153,7 +153,7 @@ export function QuoteWizard() {
               </div>
             </div>
 
-            <div className="relative min-h-[420px] px-5 pb-6 pt-6 sm:min-h-[400px] sm:px-8 sm:pb-8">
+            <div className="relative min-h-[360px] px-5 pb-6 pt-6 sm:min-h-[340px] sm:px-8 sm:pb-8">
               <AnimatePresence mode="wait" custom={direction} initial={false}>
                 <m.div
                   key={step}

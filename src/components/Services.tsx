@@ -21,7 +21,7 @@ export function Services() {
           {services.map((service) => (
             <li key={service.id}>
               <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-card transition-shadow hover:shadow-lift">
-                <div className="relative aspect-[4/3] overflow-hidden bg-cloud sm:aspect-[7/8]">
+                <div className="relative aspect-[16/10] overflow-hidden bg-cloud sm:aspect-[7/8]">
                   <Image
                     src={service.image.src}
                     alt={service.image.alt}
@@ -42,7 +42,7 @@ export function Services() {
                     arrow={false}
                     className="mt-4 inline-flex items-center gap-2 self-start rounded-full font-display text-[0.95rem] font-semibold text-teal-700 after:absolute after:inset-0 after:content-[''] hover:text-teal-600"
                   >
-                    Get a {service.id === "more" ? "" : `${service.title.split(" ")[0].toLowerCase()} `}quote
+                    {service.cta}
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-50 transition-colors group-hover:bg-teal-600 group-hover:text-white">
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </span>

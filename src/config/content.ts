@@ -53,6 +53,7 @@ export const services: {
   description: string;
   icon: IconName;
   image: { src: string; alt: string };
+  cta: string;
   /** Value pre-selected in the quote wizard's "What do you need painted?" step. */
   quoteValue?: string;
 }[] = [
@@ -61,6 +62,7 @@ export const services: {
     title: "Interior Painting",
     description: "Refresh living spaces with clean, professional finishes.",
     icon: "roller",
+    cta: "Get an interior quote",
     image: { src: "/images/services/interior.jpg", alt: "Bright living room with freshly painted walls" },
     quoteValue: "interior",
   },
@@ -69,6 +71,7 @@ export const services: {
     title: "Exterior Painting",
     description: "Improve curb appeal and protect your home's exterior.",
     icon: "home",
+    cta: "Get an exterior quote",
     image: { src: "/images/services/exterior.jpg", alt: "Two-story home with a freshly painted exterior" },
     quoteValue: "exterior",
   },
@@ -77,6 +80,7 @@ export const services: {
     title: "Cabinet Painting",
     description: "Update kitchens and bathrooms without replacing cabinetry.",
     icon: "cabinet",
+    cta: "Get a cabinet quote",
     image: { src: "/images/services/cabinets.jpg", alt: "Kitchen with painted two-tone cabinets" },
     quoteValue: "cabinets",
   },
@@ -85,6 +89,7 @@ export const services: {
     title: "More",
     description: "Trim, doors, garages, accent walls and related residential painting work.",
     icon: "brush",
+    cta: "Get a quote",
     image: { src: "/images/services/more.jpg", alt: "Freshly painted front door and white trim" },
   },
 ];
@@ -115,7 +120,7 @@ export const trustFeatures: { icon: IconName; title: string; text: string }[] = 
 export const about = {
   eyebrow: "About us",
   title: "Local Painting Made Simple",
-  body: "Paint EZ of Clearwater helps homeowners refresh and improve their homes through interior, exterior, and cabinet painting services. Our goal is to keep the whole experience easy — from your first quote to the final walkthrough.",
+  body: "Paint EZ of Clearwater helps homeowners refresh and improve their homes through interior, exterior, and cabinet painting services. Our goal is to keep the whole experience easy — from your first quote to the finished project.",
   points: [
     { title: "Simple process", text: "A quick quote, a clear plan, and a scheduled start." },
     { title: "Clear communication", text: "You'll know what's happening and when." },

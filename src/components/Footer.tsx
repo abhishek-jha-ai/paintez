@@ -10,8 +10,8 @@ export function Footer() {
   return (
     <footer className="bg-navy-950 pb-28 pt-14 text-white md:pb-10">
       <div className="container-page">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div className="col-span-2 lg:col-span-1">
             <Logo tone="light" />
             <p className="mt-4 max-w-xs text-[0.95rem] leading-relaxed text-white/70">
               Professional painters in {siteConfig.city}, {siteConfig.state}. Interior, exterior and cabinet painting for your home.
@@ -41,7 +41,7 @@ export function Footer() {
               ))}
             </ul>
           </div>
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-teal-400">Get in touch</h2>
             <ul className="mt-4 grid gap-2.5 text-white/80">
               <li>{siteConfig.serviceArea}</li>
@@ -84,7 +84,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {siteConfig.businessName}. All rights reserved.
           </p>
-          {siteConfig.demoMode ? <p className="text-white/45">{siteConfig.demoLabel}</p> : null}
+          {siteConfig.demoMode ? <p className="text-white/60">{siteConfig.demoLabel}</p> : null}
         </div>
       </div>
     </footer>
